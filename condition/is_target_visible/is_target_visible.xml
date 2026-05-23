@@ -1,0 +1,9 @@
+<library path="is_target_visible_bt_node">
+  <class name="IsTargetVisible"
+         type="is_target_visible::IsTargetVisible"
+         base_class_type="BT::ConditionNode">
+    <description>
+      Checks whether the target is visible using ultralytics_ros detection.
+    </description>
+  </class>
+</library>
