@@ -1,0 +1,10 @@
+#goal definition
+string request    # Verbal request
+# OpenDoor -> You can open the door. Tell me when you finish. 
+# GetFood -> Please serve yourself. Let me know when you finish.
+# CloseDoor -> You can close the door now.   
+uint16 duration    #Timeout period [sec]  
+---
+#result definition
+---
+#feedback definition
