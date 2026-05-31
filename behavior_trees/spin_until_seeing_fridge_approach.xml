@@ -1,0 +1,38 @@
+
+<!--
+  This Behavior Tree replans the global path periodically at 1 Hz and it also has
+  recovery actions specific to planning / control as well as general system issues.
+  This will be continuous if a kinematically valid planner is selected.
+-->
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+        <Sequence>
+          <ReactiveFallback name="RecoveryFallback">
+            <IsTargetVisible
+              PCloud_Topic="/plane_cloud"
+              is_visible="{is_visible}"/>
+            <Spin spin_dist="1.57"/>
+          </ReactiveFallback>
+          <RecoveryNode number_of_retries="6" name="GoalDelayRecovery">
+            <IsGoalUpdated 
+              goal_topic     = "/best_point_pose"
+              yaw_corr_topic = "/correction_yaw" 
+              target_goal    = "{target_goal}"
+              yaw_correction = "{yaw_corr}"
+              />
+            <Wait wait_duration="0.25"/>
+          </RecoveryNode>
+          <ComputePathToPose
+            goal="{target_goal}"
+            path="{path}"
+          />
+          <FollowPath path="{path}" controller_id="FollowPath"/> 
+          <SpinReactive spin_dist="{yaw_corr}"/>
+          <DriveOnHeading dist_to_travel="0.1"/>
+          <DriveOnHeading dist_to_travel="-0.1" speed="-0.05"/>
+          <SpinReactive
+           spin_dist="{yaw_corr}"
+           reverse = "true"/>
+        </Sequence>
+  </BehaviorTree>
+</root>
