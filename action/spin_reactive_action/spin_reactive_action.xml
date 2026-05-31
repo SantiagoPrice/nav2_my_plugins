@@ -1,0 +1,9 @@
+<library path="spin_reactive_action_bt_node">
+  <class name="SpinReactiveAction"
+         type="nav2_behavior_tree::SpinReactiveAction"
+         base_class_type="BtActionNode<nav2_msgs::action::SpinReactiveAction>">
+    <description>
+      Performs a regular spin but distance is defined during bt runtime.
+    </description>
+  </class>
+</library>
