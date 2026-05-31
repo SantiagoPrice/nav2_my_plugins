@@ -1,0 +1,9 @@
+<library path="voice_confirmation_action_bt_node">
+  <class name="VoiceConfirmationAction"
+         type="nav2_behavior_tree::VoiceConfirmationAction"
+         base_class_type="BtActionNode<nav2_msgs::action::VoiceConfirmationAction>">
+    <description>
+      Blocking action that request for voice confirmation.
+    </description>
+  </class>
+</library>
