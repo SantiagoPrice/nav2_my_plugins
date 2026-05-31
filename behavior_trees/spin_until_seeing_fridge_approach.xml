@@ -27,12 +27,21 @@
             path="{path}"
           />
           <FollowPath path="{path}" controller_id="FollowPath"/> 
+          <VoiceConfirmationAction
+           request="OpenDoor"
+           time_allowance = "15"/>
           <SpinReactive spin_dist="{yaw_corr}"/>
           <DriveOnHeading dist_to_travel="0.1"/>
+          <VoiceConfirmationAction
+           request="GetFood"
+           time_allowance = "15"/>
           <DriveOnHeading dist_to_travel="-0.1" speed="-0.05"/>
           <SpinReactive
            spin_dist="{yaw_corr}"
            reverse = "true"/>
+           <VoiceConfirmationAction
+           request="CloseDoor"
+           time_allowance = "15"/>
         </Sequence>
   </BehaviorTree>
 </root>
