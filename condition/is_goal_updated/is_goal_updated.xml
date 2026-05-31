@@ -1,0 +1,9 @@
+<library path="is_goal_updated_bt_node">
+  <class name="IsGoalUpdated"
+         type="is_goal_updated::IsGoalUpdated"
+         base_class_type="BT::ConditionNode">
+    <description>
+      Checks whether a new goal arrived.
+    </description>
+  </class>
+</library>
